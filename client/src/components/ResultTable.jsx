@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getServerData } from "../helper/helper";
 
+import { API_URL } from "../constant/index";
+
 export default function ResultTable() {
   const [data, setData] = useState([]);
 
@@ -8,7 +10,7 @@ export default function ResultTable() {
     (async () => {
       try {
         const results = await getServerData(
-          "http://localhost:5000/api/v1/results",
+          `${API_URL}/api/v1/results`,
           (data) => data
         );
         setData(results);
