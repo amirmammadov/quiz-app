@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getServerData } from "../helper/helper";
 
-/*redux actions*/
 import * as Action from "../redux/question_reducer";
+
+import { API_URL } from "../constant/index";
 
 export const useFetchQuestion = () => {
   const [getData, setGetData] = useState({
@@ -17,12 +18,10 @@ export const useFetchQuestion = () => {
   useEffect(() => {
     setGetData((prev) => ({ ...prev, isLoading: true }));
 
-    /*async function to fetch backend data */
     (async () => {
       try {
-        /*Connecting to the database based on server hostname*/
         const [{ questions, answers }] = await getServerData(
-          "http://localhost:5000/api/v1/questions",
+          `${API_URL}/api/v1/questions`,
           (data) => data
         );
 
@@ -36,7 +35,6 @@ export const useFetchQuestion = () => {
             apiData: questions,
           }));
 
-          /*dispatch an action*/
           dispatch(Action.startExamAction({ question: questions, answers }));
         } else {
           throw new Error("No Question Available");
@@ -59,7 +57,7 @@ export const useFetchQuestion = () => {
 
 export const MoveNextQuestion = () => async (dispatch) => {
   try {
-    dispatch(Action.moveNextAction()); //increase by 1
+    dispatch(Action.moveNextAction());
   } catch (error) {
     console.log(error);
   }
@@ -67,7 +65,7 @@ export const MoveNextQuestion = () => async (dispatch) => {
 
 export const MovePrevQuestion = () => async (dispatch) => {
   try {
-    dispatch(Action.movePrevAction()); //decrease by 1
+    dispatch(Action.movePrevAction());
   } catch (error) {
     console.log(error);
   }

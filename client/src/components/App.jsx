@@ -2,14 +2,12 @@ import "../styles/App.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-/*components*/
 import Main from "./Main";
 import Quiz from "./Quiz";
 import Result from "./Result";
 import Error from "./Error";
 import { CheckUserExist } from "../helper/helper";
 
-/*react router*/
 const router = createBrowserRouter([
   {
     path: "/",

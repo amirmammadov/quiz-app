@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-/*actions*/
 import { useFetchQuestion } from "../hooks/FetchQuestion";
 import { updateResult } from "../hooks/setResult";
 
@@ -16,7 +15,6 @@ export default function Questions({ onChecked }) {
 
   const [{ isLoading, apiData, serverError }] = useFetchQuestion();
 
-  /*Must use this hook for getting the latest value of checked state*/
   useEffect(() => {
     dispatch(updateResult({ trace, checked }));
   }, [checked]);

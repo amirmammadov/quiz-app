@@ -9,7 +9,6 @@ import {
   flagResult,
 } from "../helper/helper";
 
-/*redux actions to reset all data*/
 import { resetQuestionAction } from "../redux/question_reducer";
 import { resetResultAction } from "../redux/result_reducer";
 import { usePublishResult } from "../hooks/setResult";
@@ -26,7 +25,6 @@ const Result = () => {
   const earnPoints = earnPoints_Number(result, answers, 10);
   const flag = flagResult(totalPoints, earnPoints);
 
-  /*store user result*/
   usePublishResult({
     result,
     username: userId,
@@ -82,7 +80,6 @@ const Result = () => {
         </Link>
       </div>
 
-      {/*results*/}
       <div className="container">
         <ResultTable></ResultTable>
       </div>

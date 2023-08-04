@@ -15,22 +15,19 @@ export function earnPoints_Number(result, answers, point) {
 }
 
 export function flagResult(totalPoints, earnPoints) {
-  return earnPoints > (totalPoints * 50) / 100; //earn 50% marks
+  return earnPoints > (totalPoints * 50) / 100;
 }
 
-/*check user auth*/
 export function CheckUserExist({ children }) {
   const auth = useSelector((state) => state.result.userId);
   return auth ? children : <Navigate to={"/"} replace={true}></Navigate>;
 }
 
-/*get server data*/
 export const getServerData = async (url, callback) => {
   const data = await (await axios.get(url))?.data;
   return callback ? callback(data) : data;
 };
 
-/*post server data*/
 export const postServerData = async (url, result, callback) => {
   const data = await (await axios.post(url, result))?.data;
   return callback ? callback(data) : data;
