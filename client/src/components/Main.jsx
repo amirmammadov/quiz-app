@@ -16,17 +16,13 @@ const Main = () => {
 
   return (
     <div className="container">
-      <h1 className="title text-light">Quiz Application</h1>
+      <h1 className="title text-light">Brainy Application</h1>
 
-      <ol>
-        <li>You will be asked 10 questions one after another.</li>
-        <li>10 points is awarded for the correct answer.</li>
-        <li>
-          Each question has three options. You can choose only one option.
-        </li>
-        <li>You can review and change answers before the quiz finish.</li>
-        <li>The result will be declared at the end of the quiz.</li>
-      </ol>
+      <div className="introduction">
+        Welcome to the Web Dev Quiz! 5 questions, 3 choices each. Pick one for
+        10 points each. Review and change answers before the end. Results
+        revealed at completion. Good luck!
+      </div>
 
       <form id="form">
         <input
@@ -39,7 +35,7 @@ const Main = () => {
 
       <div className="start">
         <Link className="btn" to={"quiz"} onClick={startQuiz}>
-          Start Quiz
+          Start
         </Link>
       </div>
     </div>

@@ -1,6 +1,7 @@
-.container ol li {
+.container .introduction {
   font-size: 1.4em;
   color: #cecece;
+  text-align: center;
 }
 
 .start {
