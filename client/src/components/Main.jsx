@@ -9,10 +9,7 @@ const Main = () => {
   const dispatch = useDispatch();
 
   const startQuiz = () => {
-    if (
-      inputRef.current?.value &&
-      inputRef.current?.value === process.env.SECRET_KEY
-    ) {
+    if (inputRef.current?.value) {
       dispatch(setUserId(inputRef.current?.value));
     }
   };
